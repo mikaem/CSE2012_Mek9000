@@ -8,8 +8,8 @@ sudo sh -c "echo deb http://www.openfoam.org/download/ubuntu $VERS main > /etc/a
 aptUpd = "sudo apt-get update"
 
 aptGetCMD = """
-sudo apt-get install openfoam211
-sudo apt-get install paraviewopenfoam3120 
+sudo apt-get install openfoam230
+sudo apt-get install paraviewopenfoam410 
 """
 
 reloadBashRC = """
@@ -28,12 +28,12 @@ def __configBashRC():
 	testFile = open(".bashrc", "r")
 
 	for line in testFile:
-		if "source /opt/openfoam211/etc/bashrc" in str(line):
+		if "source /opt/openfoam230/etc/bashrc" in str(line):
 			print "Source directories up-to-date."
 			return None
 
 	bRC = open(".bashrc", 'a')
-	bRC.write("\n# Open FOAM sources\nsource /opt/openfoam211/etc/bashrc\n")
+	bRC.write("\n# Open FOAM sources\nsource /opt/openfoam230/etc/bashrc\n")
 	bRC.close()
 	
 	os.system("cp .bashrc ~/")
@@ -66,13 +66,4 @@ def main():
 
 
 if __name__ == "__main__":
-	main()
-
-
-
-
-
-
-
-
-	
+    main()

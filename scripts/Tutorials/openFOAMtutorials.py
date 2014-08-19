@@ -1,17 +1,12 @@
 import os, sys, subprocess
 
-makeDirDest = "$HOME/OpenFOAM/%s-2.1.1" % os.getlogin()
-
 #Create the folders as described by the openFOAM tutorial
-os.system('mkdir -p ' + makeDirDest)
 os.system('mkdir -p $FOAM_RUN') 
 
 #Copy the example files
 os.system('cp -r $FOAM_TUTORIALS $FOAM_RUN')
 
-
-
-exampleDir = "%s/OpenFOAM/%s-2.1.1/run/tutorials/incompressible/icoFoam/cavity" % (os.environ['HOME'], os.getlogin())
+exampleDir = "%s/tutorials/incompressible/icoFoam/cavity" % (os.environ['FOAM_RUN'])
 
 print """
 To run the examples, go i.e. to %s and type the following:
@@ -22,7 +17,6 @@ paraFoam
 
 If you want to execute these commands now, type 'exec'. If you want to quit, type 'quit'.
 """ % exampleDir 
-
 
 reLoop = True
 while reLoop:
